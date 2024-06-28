@@ -107,6 +107,73 @@ Cube.white, Cube.white,Cube.white,Cube.white,Cube.white,Cube.white,Cube.white,Cu
 			List<int[]> final = new List<int[]>() { front, top, down, back };
 			return final;
 		}
+		//methods for making moves (imagine that the green side is facing you and the white is facing up)
+		public void R()
+		{
+			SpiralClockwise(orangeSide);
+
+			ChangeThree(greenSide, yellowSide, blueSide, whiteSide, 2, 3, 4, 2, 3, 4, 2, 3, 4, 2, 3, 4);
+			// souřadnice píšu odshora dolů vždy o číslo menší protože 0 based index.
+		}
+		public void RPrime()
+		{
+			SpiralCounterClockwise(orangeSide);
+
+			ChangeThree(blueSide, yellowSide, greenSide, whiteSide, 2, 3, 4, 2, 3, 4, 2, 3, 4, 2, 3, 4);
+			// souřadnice u prime opačně
+		}
+		public void L()
+		{
+			SpiralClockwise(redSide);
+			ChangeThree(blueSide, yellowSide, greenSide, whiteSide, 0, 7, 6, 0, 7, 6, 0, 7, 6, 0, 7, 6);
+
+		}
+		public void LPrime()
+		{
+			SpiralClockwise(redSide);
+			ChangeThree(greenSide, yellowSide, blueSide, whiteSide, 0, 7, 6, 0, 7, 6, 0, 7, 6, 0, 7, 6);
+
+		}
+		public void U()
+		{
+			SpiralClockwise(yellowSide);
+			ChangeThree(greenSide, redSide, blueSide, orangeSide, 0, 1, 2, 2, 3, 4, 4, 5, 6, 6, 7, 0);
+		}
+		public void UPrime()
+		{
+			SpiralCounterClockwise(yellowSide);
+			ChangeThree(blueSide, redSide, greenSide, orangeSide, 4, 5, 6, 2, 3, 4, 0, 1, 2, 6, 7, 0);
+		}
+		public void D()
+		{
+			SpiralClockwise(whiteSide);
+			ChangeThree(blueSide, redSide, greenSide, orangeSide, 0, 1, 2, 6, 7, 0, 4, 5, 6, 2, 3, 4);
+		}
+		public void DPrime()
+		{
+			SpiralCounterClockwise(whiteSide);
+			ChangeThree(greenSide, redSide, blueSide, orangeSide, 4, 5, 6, 6, 7, 0, 0, 1, 2, 2, 3, 4);
+		}
+		public void F()
+		{
+			SpiralClockwise(greenSide);
+			ChangeThree(redSide, yellowSide, orangeSide, whiteSide, 4, 5, 6, 4, 5, 6, 4, 5, 6, 0, 1, 2);
+		}
+		public void FPrime()
+		{
+			SpiralCounterClockwise(greenSide);
+			ChangeThree(orangeSide, yellowSide, redSide, whiteSide, 4, 5, 6, 4, 5, 6, 4, 5, 6, 0, 1, 2);
+		}
+		public void B()
+		{
+			SpiralClockwise(blueSide);
+			ChangeThree(orangeSide, yellowSide, redSide, whiteSide, 0, 1, 2, 0, 1, 2, 0, 1, 2, 4, 5, 6);
+		}
+		public void BPrime()
+		{
+			SpiralCounterClockwise(blueSide);
+			ChangeThree(redSide, yellowSide, orangeSide, whiteSide, 0, 1, 2, 0, 1, 2, 0, 1, 2, 4, 5, 6);
+		}
 		int[] SpiralClockwise(int[] side)
 		{
 			for (int j = 0; j < 2; j++)
